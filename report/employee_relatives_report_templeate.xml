@@ -1,0 +1,55 @@
+<odoo>
+    <template id="report_employee_relatives_detail">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure">
+                        <div class="text-center">
+                            <h2>employee relatives</h2>
+                        </div>
+                        <br/>
+                        <table>
+
+                            <!--========================[row]====================-->
+                            <tr>
+                                <td>name</td>
+                                <td>:</td>
+                                <td>
+                                    <t t-if="form.get('employee_id')">
+                                        <t t-esc="form['employee_id'][1]"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr></tr>
+                            <!--========================[row]====================-->
+                        </table>
+                    <div class="row">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:left;"><strong>Name </strong></th>
+                                    <th style="text-align:left;"><strong>Age </strong></th>
+                                    <th style="text-align:left;"><strong>Birth Date </strong></th>
+                                    <th style="text-align:left;"><strong>Relation degree</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 <t t-foreach="employee_relatives" t-as="rec">
+                                    <tr>
+                                        <td><span t-esc="rec['name']"/></td>
+                                        <td><span t-esc="rec['age']"/></td>
+                                        <td><span t-esc="rec['date_of_birth']"/></td>
+                                        <td><span t-esc="rec['relation_degree']"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
+
+

@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <!--==================== [Employee] menu =============================-->
+        <menuitem name="Relatives Employee" id="relatives_employee_menu_root"/>
+        <!--===================================================================-->
+        <!--==================== [employee relatives] menu =============================-->
+        <menuitem name="employee relatives" id="employee_relatives_menu_root" parent="relatives_employee_menu_root" action="employee_relatives_action"/>
+        <!--===================================================================-->
+        <!--==================== [relatives] menu =============================-->
+        <menuitem name="relatives" id="relatives" parent="relatives_employee_menu_root"
+                  action="relatives_action"/>
+        <!--===================================================================-->
+        <!--==================== [Reporting] menu =============================-->
+        <menuitem name="Reporting" id="report_employee_relatives_menu_root" parent="relatives_employee_menu_root"/>
+        <menuitem name="employee relatives report" id="report_employee_relatives_wizar_menu_root" parent="report_employee_relatives_menu_root"
+                  action="employee_relatives_report_wizard_action"/>
+        <!--===================================================================-->
+        <!--==================== [Relatives] menu =============================-->
+        <!--===================================================================-->
+
+    </data>
+</odoo>

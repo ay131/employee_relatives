@@ -1,0 +1,95 @@
+<odoo>
+    <data>
+        <!-- ============== tree view  ============= -->
+        <record id="relatives_tree_view" model="ir.ui.view">
+            <field name="name">relatives.tree.view</field>
+            <field name="model">relatives</field>
+            <field name="arch" type="xml">
+                <tree string="relatives" sample="1">
+                    <field name='name'/>
+                    <field name='relation_degree'/>
+                    <field name='date_of_birth'/>
+                    <field name="employee_id"/>
+                    <field name="age"/>
+                </tree>
+            </field>
+        </record>
+        <!-- ============================================================= -->
+        <!-- ============== [relatives.form.view ] ============= -->
+        <record id="relatives_form_view" model="ir.ui.view">
+            <field name="name">relatives.form.view</field>
+            <field name="model">relatives</field>
+            <field name="arch" type="xml">
+                <form string="relatives">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='name'/>
+                                <field name='relation_degree'/>
+                            </group>
+                            <group>
+                                <field name='date_of_birth'/>
+                                <field name="employee_id"/>
+                                <field name="age"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- ============================================================= -->
+        <!-- ============== kanban view  ================================= -->
+        <record id="relatives_kanban_view" model="ir.ui.view">
+            <field name="name">relatives_kanban_view</field>
+            <field name="model">relatives</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="relation_degree"/>
+                    <field name="age"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <ul>
+                                    <li class="oe_title">
+                                        <h3>name:
+                                            <field name="name"/>
+                                        </h3>
+                                    </li>
+                                    <li>
+                                        employee :
+                                        <field name="employee_id"/>
+                                    </li>
+                                    <li>relationship:
+                                        <field name="relation_degree"/>
+                                    </li>
+                                    <li>
+                                        age :
+                                        <field name="age"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!-- ============================================================= -->
+        <!-- ============== [relatives action] ============= -->
+        <record model="ir.actions.act_window" id="relatives_action">
+            <field name="name">relatives</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">relatives</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    create your first relatives !
+                </p>
+            </field>
+        </record>
+        <!--===================================================================-->
+
+    </data>
+</odoo>

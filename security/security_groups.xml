@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ===================manger group===========-->
+    <record id="group_employee_relatives_manager" model="res.groups">
+        <field name="name">employee relatives manager</field>
+    </record>
+    <!--  ==============================================-->
+
+    <!--  ==============user group==========================-->
+    <record id="group_employee_relatives_user" model="res.groups">
+        <field name="name">employee relatives user</field>
+    </record>
+    <!--  ==============================================-->
+
+</odoo>

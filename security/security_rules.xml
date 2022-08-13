@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    ==============================================-->
+  <record model="ir.model.access" id="relatives_access_rules">
+        <field name="name">relatives access rules</field>
+        <field name="model_id" ref="model_relatives"/>
+        <field name="group_id" ref="group_employee_relatives_user"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">0</field>
+    </record>
+<!--    ==============================================-->
+    <record model="ir.model.access" id="employee_relatives_access_rules">
+        <field name="name">employee relatives access rules</field>
+        <field name="model_id" ref="model_employee_relatives"/>
+        <field name="group_id" ref="group_employee_relatives_user"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">0</field>
+    </record>
+
+
+
+<!--    ==============================================-->
+    <record id="rule_user_relatives" model="ir.rule">
+        <field name="name">own relatives</field>
+        <field name="model_id" ref="model_relatives"/>
+        <field name="groups" eval="[(4,ref('group_employee_relatives_user'))]"/>
+        <field name="domain_force">[('user_id','=',user.id)]</field>
+    </record>
+<!--    ==============================================-->
+    <record id="rule_user_employee_relatives" model="ir.rule">
+        <field name="name">own employee relatives</field>
+        <field name="model_id" ref="model_employee_relatives"/>
+        <field name="groups" eval="[(4,ref('group_employee_relatives_user'))]"/>
+        <field name="domain_force">[('user_id','=',user.id)]</field>
+    </record>
+<!--    ==============================================-->
+
+</odoo>

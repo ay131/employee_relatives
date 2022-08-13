@@ -1,0 +1,130 @@
+<odoo>
+    <data>
+        <!-- ============== [tree view ] ============= -->
+        <record id="employee_relatives_tree_view" model="ir.ui.view">
+            <field name="name">employee.relatives.tree.view</field>
+            <field name="model">employee.relatives</field>
+
+            <field name="arch" type="xml">
+                <tree string="employee relatives" sample="1" edit="1">
+                    <field name='code_name'/>
+                    <field name='employee_id'/>
+                    <field name='relative_ids' widget="many2many_tags"/>
+                    <field name='relatives_count' optional="show"/>
+                    <field name='last_change_state' optional="show"/>
+                    <field name='employee_phone' optional="hide"/>
+                </tree>
+            </field>
+        </record>
+        <!-- ============================================================= -->
+        <!-- ============== [employee.relatives.form.view ] ============= -->
+        <record id="employee_relatives_form_view" model="ir.ui.view">
+            <field name="name">employee_relatives_form_view</field>
+            <field name="model">employee.relatives</field>
+            <field name="arch" type="xml">
+                <form string="employee relatives">
+                    <header>
+                        <!-- ==============start statusbar button controller  ============= -->
+                        <button name="action_do_cancal"
+                                type="object"
+                                string="cancal"
+                                confirm="do yo sure to do cancal"
+                                class="btn-danger"/>
+                        <!--_______________________________________________-->
+                        <button name="action_do_draft"
+                                type="object"
+                                string="draft"
+                                class="btn-info"/>
+                        <!--_______________________________________________-->
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name='code_name'/>
+                                <field name='employee_id'/>
+                            </group>
+                            <group>
+                                <field name='relatives_count'/>
+                                <field name='employee_phone'/>
+                                <field name='last_change_state'/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <!-- ==============[relatives page ] ============= -->
+                            <page name="relatives" string="relatives">
+                                <field name="relative_ids">
+                                    <tree string="relatives" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="date_of_birth"/>
+                                        <field name="relation_degree"/>
+                                        <field name="age"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <!-- ==============[relatives page] ============= -->
+                        </notebook>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+        <!-- ============================================================= -->
+        <!-- ============== kanban view  ================================= -->
+        <record id="employee_relatives_kanban_view" model="ir.ui.view">
+            <field name="name">employee_relatives_kanban_view</field>
+            <field name="model">employee.relatives</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="code_name"/>
+                    <field name="employee_id"/>
+                    <field name="relatives_count"/>
+                    <field name="relative_ids"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div t-attf-class="oe_kanban_details">
+                                    <ul>
+                                        <li class="oe_title text-center">
+                                            <h3>
+                                                <field name="code_name"/>
+                                            </h3>
+                                        </li>
+                                        <li>
+                                            employee :
+                                            <field name="employee_id"/>
+                                        </li>
+                                        <li>
+                                            <field name="relative_ids" widget="many2many_tags"/>
+                                        </li>
+                                        <li>
+                                            relatives count :
+                                            <field name="relatives_count"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!-- ============================================================= -->
+
+        <!-- ============== [employee relatives action] ============= -->
+        <record model="ir.actions.act_window" id="employee_relatives_action">
+            <field name="name">employee relative</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">employee.relatives</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    create employee relatives type !
+                </p>
+            </field>
+        </record>
+        <!--===================================================================-->
+
+    </data>
+</odoo>

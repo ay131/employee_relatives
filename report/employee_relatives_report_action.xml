@@ -1,0 +1,15 @@
+<odoo>
+
+          <!--  "action" appiontment report_action-->om_hospital
+         <record model="ir.actions.report" id="employee_relatives_report_action">
+            <field name="name">employee relatives report</field>
+            <field name="model">employee.relatives.report.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">employee_relatives.report_employee_relatives_detail</field>
+            <field name="report_file">employee_relatives.report_employee_relatives_detail</field>
+            <field name="binding_model_id" ref="model_employee_relatives_report_wizard"/>
+            <field name="binding_type" >report</field>
+        </record>
+
+
+</odoo>

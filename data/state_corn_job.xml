@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+        <!-- ============== [satate corn hob] ============= -->
+  <record id="state_corn_job" model="ir.cron">
+       <field name="name">state corn job</field>
+       <field name="model_id" ref="model_employee_relatives"/>
+       <field name="state">code</field>
+       <field name="code">model.state_corn_job()</field>
+       <field name='interval_number'>1</field>
+       <field name='interval_type'>days</field>
+       <field name="numbercall">-1</field>
+   </record>
+        <!--===================================================================-->
+    </data>
+</odoo>

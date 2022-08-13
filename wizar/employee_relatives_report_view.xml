@@ -1,0 +1,30 @@
+<odoo>
+<data>
+
+    <record id="employee_relatives_report_wizard_form_view" model="ir.ui.view">
+        <field name="name">employee relatives report wizard form view</field>
+        <field name="model">employee.relatives.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="employee relatives report">
+                <group>
+                    <field name="employee_id"/>
+                </group>
+                <footer>
+                    <button name="employee_relatives_report_action" string="print"  class="btn-primary" type="object" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="employee_relatives_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">employee relatives report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.relatives.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="employee_relatives_report_wizard_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+</data>
+</odoo>

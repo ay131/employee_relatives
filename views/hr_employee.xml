@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+
+        <!-- ============== [inherited_hr_employee_hne_view_form] ============= -->
+        <!--inherited_hr_employee_hne_view_form-->
+        <record id="inherited_hr_employee_hne_view_form" model="ir.ui.view">
+            <field name="name">inherited_hr_employee_hne_view_form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[last()]" position="after">
+                    <page string="Relatives">
+
+                        <field name="relative_ids" >
+                            <tree edit="0" delete="0" create="0" >
+                                <field name="relative_ids" widget="many2many_tags" readonly="1"/>
+                                <field name="relatives_count" class="text-info" readonly="1"/>
+                            </tree>
+                        </field>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <!--===================================================================-->
+    </data>
+</odoo>
