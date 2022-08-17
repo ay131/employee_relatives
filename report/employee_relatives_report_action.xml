@@ -1,6 +1,6 @@
 <odoo>
 
-          <!--  "action" appiontment report_action-->om_hospital
+          <!--  employee_relatives_report_action -->
          <record model="ir.actions.report" id="employee_relatives_report_action">
             <field name="name">employee relatives report</field>
             <field name="model">employee.relatives.report.wizard</field>
